@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{28F1E101-0DE9-4E39-A208-652AD7971199}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiccoApp.Persistence", "..\SiccoApp.Persistence\SiccoApp.Persistence.csproj", "{24AEC497-836B-44B3-BC9D-40DC55F6AC47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiccoApp.Logging", "..\SiccoApp.Logging\SiccoApp.Logging.csproj", "{44B8B1AF-8D1E-4C98-8CB6-D442941006AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiccoApp.WindowsServices", "..\SiccoApp.WindowsServices\SiccoApp.WindowsServices.csproj", "{75F2EE5F-96C7-46F8-A26E-585572F72651}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9DBE0215-B52A-49C1-87D1-04ECAB45E09B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiccoApp.Messaging", "..\SiccoApp.Messaging\SiccoApp.Messaging.csproj", "{815492D0-9A1D-427F-8CAE-C6158716679D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DBScripts", "DBScripts", "{D12CCB50-FE50-4520-A6E5-88C4A137635C}"
+	ProjectSection(SolutionItems) = preProject
+		PresentationStatus.sql = PresentationStatus.sql
+		RequirementStatus.sql = RequirementStatus.sql
+		spDocumentationMatrix_Delete.sql = spDocumentationMatrix_Delete.sql
+		spDocumentationMatrix_Generate.sql = spDocumentationMatrix_Generate.sql
+		spRequirement_Generate.sql = spRequirement_Generate.sql
+		vwCustomersDocumetationMatrix.sql = vwCustomersDocumetationMatrix.sql
+		vwRequirements.sql = vwRequirements.sql
+		vwTemplatesDocumetationMatrix.sql = vwTemplatesDocumetationMatrix.sql
+		vwUsersWithRoles.sql = vwUsersWithRoles.sql
+	EndProjectSection
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SiccoAppDB", "..\SiccoAppDB\SiccoAppDB.sqlproj", "{B1467DC2-7214-4493-9B31-CCCE0B6CF53B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiccoApp.Services", "SiccoApp.Services\SiccoApp.Services.csproj", "{9BFABF2A-80B6-4D81-AC92-E17D49E75225}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiccoApp", "SiccoApp\SiccoApp.csproj", "{81CE237E-58C3-45B4-B15E-A91D49A84D76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28F1E101-0DE9-4E39-A208-652AD7971199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F1E101-0DE9-4E39-A208-652AD7971199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F1E101-0DE9-4E39-A208-652AD7971199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F1E101-0DE9-4E39-A208-652AD7971199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24AEC497-836B-44B3-BC9D-40DC55F6AC47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24AEC497-836B-44B3-BC9D-40DC55F6AC47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24AEC497-836B-44B3-BC9D-40DC55F6AC47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24AEC497-836B-44B3-BC9D-40DC55F6AC47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44B8B1AF-8D1E-4C98-8CB6-D442941006AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44B8B1AF-8D1E-4C98-8CB6-D442941006AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44B8B1AF-8D1E-4C98-8CB6-D442941006AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44B8B1AF-8D1E-4C98-8CB6-D442941006AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75F2EE5F-96C7-46F8-A26E-585572F72651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75F2EE5F-96C7-46F8-A26E-585572F72651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75F2EE5F-96C7-46F8-A26E-585572F72651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75F2EE5F-96C7-46F8-A26E-585572F72651}.Release|Any CPU.Build.0 = Release|Any CPU
+		{815492D0-9A1D-427F-8CAE-C6158716679D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{815492D0-9A1D-427F-8CAE-C6158716679D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{815492D0-9A1D-427F-8CAE-C6158716679D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{815492D0-9A1D-427F-8CAE-C6158716679D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1467DC2-7214-4493-9B31-CCCE0B6CF53B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1467DC2-7214-4493-9B31-CCCE0B6CF53B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1467DC2-7214-4493-9B31-CCCE0B6CF53B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B1467DC2-7214-4493-9B31-CCCE0B6CF53B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1467DC2-7214-4493-9B31-CCCE0B6CF53B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1467DC2-7214-4493-9B31-CCCE0B6CF53B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9BFABF2A-80B6-4D81-AC92-E17D49E75225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BFABF2A-80B6-4D81-AC92-E17D49E75225}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BFABF2A-80B6-4D81-AC92-E17D49E75225}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BFABF2A-80B6-4D81-AC92-E17D49E75225}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81CE237E-58C3-45B4-B15E-A91D49A84D76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81CE237E-58C3-45B4-B15E-A91D49A84D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81CE237E-58C3-45B4-B15E-A91D49A84D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81CE237E-58C3-45B4-B15E-A91D49A84D76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

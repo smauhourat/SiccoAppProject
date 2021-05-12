@@ -1,0 +1,96 @@
+﻿@model IEnumerable<SiccoApp.Persistence.Contractor>
+
+@{
+    ViewBag.Title = "Contractors";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>@Resources.EtyContractors</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><!--Subtitulo--> <small><!--detalle subtitulo--></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "Contractors")'">@Resources.CreateNew</button>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+                            <!--<p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+
+                            <div class="table-responsive">
+                                <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                    <thead>
+                                        <tr class="headings">
+                                            <th>
+                                                @*<input type="checkbox" id="check-all" class="flat">*@
+                                            </th>
+                                            <th class="column-title">@Html.DisplayNameFor(model => model.BusinessType) </th>
+                                            <th class="column-title">@Html.DisplayNameFor(model => model.CompanyName) </th>
+                                            <th class="column-title">@Html.DisplayNameFor(model => model.TaxIdNumber) </th>
+                                            @*<th class="column-title">@Html.DisplayNameFor(model => model.Country) </th>
+                                            <th class="column-title">@Html.DisplayNameFor(model => model.State) </th>
+                                            <th class="column-title">@Html.DisplayNameFor(model => model.City) </th>
+                                            <th class="column-title">@Html.DisplayNameFor(model => model.Address) </th>*@
+                                            <th class="column-title">@Html.DisplayNameFor(model => model.PhoneNumber) </th>
+                                            <th class="column-title">@Html.DisplayNameFor(model => model.Email) </th>
+                                            <th class="column-title no-link text-center">
+                                                <span class="nobr">Acciones</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="7">
+                                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr class="odd pointer">
+                                                <td class="a-center ">
+                                                    @*<input type="checkbox" class="flat" name="table_records">*@
+                                                </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.BusinessType.BusinessTypeCode) </td>
+                                                <td class="text-nowrap">@Html.DisplayFor(modelItem => item.CompanyName) </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.TaxIdNumber) </td>
+                                                @*<td class="">@Html.DisplayFor(modelItem => item.Country.CountryName) </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.State.StateName) </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.City) </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.Address) </td>*@
+                                                <td class="">@Html.DisplayFor(modelItem => item.PhoneNumber) </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.Email) </td>
+                                                <td class="a-center a-center last text-nowrap text-right">
+                                                    @Html.ActionLink(@Resources.Edit, "Edit", new { id = item.ContractorID }) |
+                                                    @Html.ActionLink(@Resources.Details, "Details", new { id = item.ContractorID }) |
+                                                    @Html.ActionLink(@Resources.Delete, "Delete", new { id = item.ContractorID }) |
+                                                    @Html.ActionLink(@Resources.Users, "Users", new { id = item.ContractorID }) |
+                                                    <a title="@Resources.EtyEmployees" href="@Url.Action("Employees", "Contractors", new { id = item.ContractorID })"><i class="fa fa-user"></i></a> |
+                                                    <a title="@Resources.EtyVehicles" href="@Url.Action("Vehicles", "Contractors", new { id = item.ContractorID })"><i class="fa fa-truck"></i></a> | 
+                                                    <a title="@Resources.EtyContract" href="@Url.Action("Contracts", "Contractors", new { id = item.ContractorID })"><i class="fa fa-book"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "Contractors")'">@Resources.CreateNew</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

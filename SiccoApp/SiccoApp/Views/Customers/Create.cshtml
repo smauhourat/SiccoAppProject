@@ -1,0 +1,136 @@
+﻿@model SiccoApp.Persistence.Customer
+
+@{
+    ViewBag.Title = @Resources.Create;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>@Resources.EtyCustomer </h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>@Resources.CustomerCreate <small><!--detalle subtitulo--></small></h2>
+                        <ul class="nav navbar-right panel_toolbox"></ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <!--Aca iria el FORM-->
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal form-label-left" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })
+                                    @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TaxIdNumber, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.EditorFor(model => model.TaxIdNumber, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })
+                                    @Html.ValidationMessageFor(model => model.TaxIdNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownList("CountryID", null, @Resources.Select, htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
+                                    @Html.ValidationMessageFor(model => model.CountryID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownList("StateID", new SelectList(string.Empty, "Value", "Text"), @Resources.Select, htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
+                                    @Html.ValidationMessageFor(model => model.StateID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })
+                                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })
+                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })
+                                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button type="submit" class="btn btn-success">@Resources.Create</button>
+                                    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Customers")';return false;">@Resources.BackToList</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Esto esta reemplazando a -->
+@*@section Scripts {@Scripts.Render("~/bundles/jqueryval")}*@
+<script src="/Scripts/jquery.validate.js"></script>
+<script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<!--<script src="~/Scripts/jquery-1.10.2.min.js"></script>-->
+<script type="text/javascript">
+                                $(document).ready(function () {
+                                    //Country Dropdown Selectedchange event
+                                    $("#CountryID").change(function () {
+                                        $("#StateID").empty();
+                                        $.ajax({
+                                            type: 'POST',
+                                            // url: '@Url.Action("GetStatesByCountryID2")', // Calling json method
+                                            url: '@Url.Action("GetStatesByCountryId2", "Address")', // Calling json method
+                                            dataType: 'json',
+                                            data: { id: $("#CountryID").val() },
+                                            // Get Selected Country ID.
+                                            success: function (states) {
+                                                $.each(states, function (i, state) {
+                                                    $("#StateID").append('<option value="' + state.Value + '">' +
+                                                         state.Text + '</option>');
+                                                });
+                                            },
+                                            error: function (ex) {
+                                                alert('Failed to retrieve states.' + ex);
+                                            }
+                                        });
+                                        return false;
+                                    })
+                                    // And now fire change event when the DOM is ready
+                                    //$('#CountryID').trigger('change');
+                                });
+</script>

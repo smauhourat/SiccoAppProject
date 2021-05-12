@@ -1,0 +1,68 @@
+﻿@model SiccoApp.Models.AssignedCustomersViewModel
+
+@{
+    ViewBag.Title = @Resources.AssignedCustomers;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>@Resources.AssignedCustomers</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>@Resources.EtyUser: @Html.DisplayFor(model => model.UserName)<small></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("CustomersCreate", "CustomerAdminAuditors", new {userID = Model.UserId })'">@Resources.AssignCustomers</button>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+                            <!--<p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+
+
+                            <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">Cliente</th>
+                                        <th class="column-title">CUIT Cliente</th>
+                                        <th class="column-title no-link text-right">
+                                            <span class="nobr">@Resources.Action</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.CustomerAuditors)
+                                    {
+                                        <tr class="odd pointer">
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.Customer.CompanyName) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.Customer.TaxIdNumber) </td>
+                                            <td class="a-center a-center text-right">
+                                                @Html.ActionLink(@Resources.Delete, "CustomersDelete", new { customerAuditorID = item.CustomerAuditorID, userID = item.UserId })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("CustomersCreate", "CustomerAdminAuditors", new {userID = Model.UserId })'">@Resources.AssignCustomers</button>
+                        </div>
+                        <div class="nav navbar-right panel_toolbox">
+                            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Users", "CustomerAdminAuditors")';return false;">@Resources.BackToList</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

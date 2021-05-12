@@ -1,0 +1,120 @@
+﻿@model SiccoApp.Models.DocumentationResumeViewModel
+
+@{
+    ViewBag.Title = "Documentation";
+    Layout = "~/Views/Shared/_LayoutContractor.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Documentacion Requerida</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2> Por Contratista<small><!--detalle subtitulo--></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+                            <div class="table-responsive">
+                                <table class="responsive-utilities">
+                                    <tbody>
+                                        @foreach (var item in Model.ContractorDocumentation)
+                                        {
+                                            <tr class="">
+                                                <td class="">(@Html.DisplayFor(modelItem => item.DocumentationCode)) - @Html.DisplayFor(modelItem => item.DocumentationDescription) - @Html.DisplayFor(modelItem => item.DocumentationPeriodicityDescription) </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2> Por Empleado<small><!--detalle subtitulo--></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+                            <div class="table-responsive">
+                                <table class="responsive-utilities">
+                                    <tbody>
+                                        @foreach (var item in Model.EmployeDocumentation)
+                                        {
+                                            <tr class="">
+                                                <td class="">(@Html.DisplayFor(modelItem => item.DocumentationCode)) - @Html.DisplayFor(modelItem => item.DocumentationDescription) - @Html.DisplayFor(modelItem => item.DocumentationPeriodicityDescription) </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2> Por Vehiculo<small><!--detalle subtitulo--></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+                            <div class="table-responsive">
+                                <table class="responsive-utilities">
+                                    <tbody>
+                                        @foreach (var item in Model.VehicleDocumentation)
+                                        {
+                                            <tr class="">
+                                                <td class="">(@Html.DisplayFor(modelItem => item.DocumentationCode)) - @Html.DisplayFor(modelItem => item.DocumentationDescription) - @Html.DisplayFor(modelItem => item.DocumentationPeriodicityDescription) </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

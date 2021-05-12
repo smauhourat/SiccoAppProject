@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewBag.Title = "Confirmacion Email Exitosa";
+}
+
+@*<h2>@ViewBag.Title.</h2>*@
+
+<div class="animate form login_form">
+    <section class="login_content">
+
+        <h1>@ViewBag.Title.</h1>
+        <div>
+            <p>
+                @*Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })*@
+                Gracias por confirmar su Email. Por favor @Html.ActionLink("Ingrese aqui", "Index", "HomeSelector", routeValues: null, htmlAttributes: new { id = "loginLink" })
+            </p>
+        </div>
+        <div class="separator">
+            <div>
+                @*<h1><i class="fa fa-paw"></i> Sicco</h1>*@
+                <img class=".img-responsive" src="~/Content/images/logocolor.png" height="30px">
+                <p>@Resources.CopyRightFooter</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+

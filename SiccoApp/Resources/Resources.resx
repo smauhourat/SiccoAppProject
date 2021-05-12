@@ -1,0 +1,786 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BackToList" xml:space="preserve">
+    <value>Back to List</value>
+  </data>
+  <data name="ChooseYourLanguage" xml:space="preserve">
+    <value>Choose your language</value>
+  </data>
+  <data name="CodBusinessTypeLong" xml:space="preserve">
+    <value>Must be less than 20 characters</value>
+  </data>
+  <data name="CodBusinessTypeName" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="CodBusinessTypeRequired" xml:space="preserve">
+    <value>Code is required</value>
+  </data>
+  <data name="CodDocumentationLong" xml:space="preserve">
+    <value>Must be less than 20 characters</value>
+  </data>
+  <data name="CodDocumentationName" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="CodDocumentationRequired" xml:space="preserve">
+    <value>Code is required</value>
+  </data>
+  <data name="CodDocumentationTemplateLong" xml:space="preserve">
+    <value>Must be less than 20 characters</value>
+  </data>
+  <data name="CodDocumentationTemplateName" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="CodDocumentationTemplateRequired" xml:space="preserve">
+    <value>Code is required</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Create New</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DescBusinessTypeLong" xml:space="preserve">
+    <value>Must be less than 150 characters</value>
+  </data>
+  <data name="DescBusinessTypeName" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DescBusinessTypeRequired" xml:space="preserve">
+    <value>Description is required</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EtyBusinessType" xml:space="preserve">
+    <value>Business Type</value>
+  </data>
+  <data name="EtyBusinessTypes" xml:space="preserve">
+    <value>Business Type</value>
+  </data>
+  <data name="EtyBusinessTypesTitle" xml:space="preserve">
+    <value>Business Type List</value>
+  </data>
+  <data name="EtyContractor" xml:space="preserve">
+    <value>Contractor</value>
+  </data>
+  <data name="EtyContractors" xml:space="preserve">
+    <value>Contractor</value>
+  </data>
+  <data name="EtyContractorsTitle" xml:space="preserve">
+    <value>Contractor List</value>
+  </data>
+  <data name="EtyCustomer" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="EtyCustomers" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="EtyCustomerTitle" xml:space="preserve">
+    <value>Customer List</value>
+  </data>
+  <data name="EtyDocumentation" xml:space="preserve">
+    <value>Documentation</value>
+  </data>
+  <data name="EtyDocumentations" xml:space="preserve">
+    <value>Documentation</value>
+  </data>
+  <data name="EtyDocumentationTitle" xml:space="preserve">
+    <value>Documentation List</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="DescDocumentationTemplateLong" xml:space="preserve">
+    <value>Must be less than 150 characters</value>
+  </data>
+  <data name="DescDocumentationTemplateName" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DescDocumentationTemplateRequired" xml:space="preserve">
+    <value>Description is required</value>
+  </data>
+  <data name="CompanyName_Long" xml:space="preserve">
+    <value>Must be less than 150 characters</value>
+  </data>
+  <data name="CompanyName_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="CompanyName_Required" xml:space="preserve">
+    <value>Name is required</value>
+  </data>
+  <data name="PhoneNumber_Long" xml:space="preserve">
+    <value>Must be less than 20 characters</value>
+  </data>
+  <data name="PhoneNumber_Name" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="TaxIdNumber_Long" xml:space="preserve">
+    <value>Must be less than 20 characters</value>
+  </data>
+  <data name="TaxIdNumber_Name" xml:space="preserve">
+    <value>Tax Id</value>
+  </data>
+  <data name="TaxIdNumber_Required" xml:space="preserve">
+    <value>Tax Id is required</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="EmergPhoneNumber_Name" xml:space="preserve">
+    <value>Emerg. Phone Number</value>
+  </data>
+  <data name="DocEntityType" xml:space="preserve">
+    <value>Entity Type</value>
+  </data>
+  <data name="Periodicity" xml:space="preserve">
+    <value>Periodicity</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="ConfirmPasswordNoMatch" xml:space="preserve">
+    <value>The password and confirmation password do not match.</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Log In</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="EtyEmployee" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="EtyEmployees" xml:space="preserve">
+    <value>Employees</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="IdentificationNumber" xml:space="preserve">
+    <value>Identification Number</value>
+  </data>
+  <data name="FirstName_Long" xml:space="preserve">
+    <value>Must be less than 50 characters</value>
+  </data>
+  <data name="FirstName_Required" xml:space="preserve">
+    <value>First Name is required</value>
+  </data>
+  <data name="LastName_Long" xml:space="preserve">
+    <value>Must be less than 50 characters</value>
+  </data>
+  <data name="LastName_Required" xml:space="preserve">
+    <value>Last Name is required</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="VehicleIdentificationNumber" xml:space="preserve">
+    <value>Vehicle Identification</value>
+  </data>
+  <data name="VehicleIdentificationNumber_Long" xml:space="preserve">
+    <value>Must be less than 50 characters</value>
+  </data>
+  <data name="VehicleIdentificationNumber_Required" xml:space="preserve">
+    <value>Vehicle Identification is required</value>
+  </data>
+  <data name="VehicleDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="VehicleDescription_Long" xml:space="preserve">
+    <value>Must be less than 250 characters</value>
+  </data>
+  <data name="VehicleDescription_Required" xml:space="preserve">
+    <value>Vehicle Description is required</value>
+  </data>
+  <data name="EtyVehicle" xml:space="preserve">
+    <value>Vehicle</value>
+  </data>
+  <data name="EtyVehicles" xml:space="preserve">
+    <value>Vehicles</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>Documentation</value>
+  </data>
+  <data name="Importance" xml:space="preserve">
+    <value>Importance</value>
+  </data>
+  <data name="AssignedDocument" xml:space="preserve">
+    <value>Documentation</value>
+  </data>
+  <data name="AssignedDocuments" xml:space="preserve">
+    <value>Assigned Documentations</value>
+  </data>
+  <data name="AskToDelete" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="AddDocumentation" xml:space="preserve">
+    <value>Add Documentation</value>
+  </data>
+  <data name="Importance_Range" xml:space="preserve">
+    <value>The Value must be between 1 and 10</value>
+  </data>
+  <data name="Importance_Required" xml:space="preserve">
+    <value>Importance is required</value>
+  </data>
+  <data name="DocumentsCreate" xml:space="preserve">
+    <value>Documentation Create</value>
+  </data>
+  <data name="DocumentsDelete" xml:space="preserve">
+    <value>Documentation Delete</value>
+  </data>
+  <data name="DocumentsEdit" xml:space="preserve">
+    <value>Documentation Edit</value>
+  </data>
+  <data name="EmployeeCreate" xml:space="preserve">
+    <value>Employee Create</value>
+  </data>
+  <data name="EmployeeDelete" xml:space="preserve">
+    <value>Employee Delete</value>
+  </data>
+  <data name="EmployeeEdit" xml:space="preserve">
+    <value>Employee Edit</value>
+  </data>
+  <data name="EmployeesForContractor" xml:space="preserve">
+    <value>Employees for Contractor</value>
+  </data>
+  <data name="VehicleCreate" xml:space="preserve">
+    <value>Vehicle Create</value>
+  </data>
+  <data name="VehicleDelete" xml:space="preserve">
+    <value>Vehicle Delete</value>
+  </data>
+  <data name="VehicleEdit" xml:space="preserve">
+    <value>Vehicle Edit</value>
+  </data>
+  <data name="VehiclesForContractor" xml:space="preserve">
+    <value>Vehicles for Contractor</value>
+  </data>
+  <data name="DescDocumentationName" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="PeriodID" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="DueDate" xml:space="preserve">
+    <value>Due Date</value>
+  </data>
+  <data name="RequirementStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ResourceType" xml:space="preserve">
+    <value>Resource Type</value>
+  </data>
+  <data name="ResourceIdentification" xml:space="preserve">
+    <value>Resource</value>
+  </data>
+  <data name="ApprovedDate" xml:space="preserve">
+    <value>Approved Date</value>
+  </data>
+  <data name="Observations" xml:space="preserve">
+    <value>Observations</value>
+  </data>
+  <data name="PresentationDate" xml:space="preserve">
+    <value>Presentation Date</value>
+  </data>
+  <data name="PresentationState" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="RejectedDate" xml:space="preserve">
+    <value>Rejected Date</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="DownloadDocument" xml:space="preserve">
+    <value>Download Document</value>
+  </data>
+  <data name="TakenDate" xml:space="preserve">
+    <value>Taken Date</value>
+  </data>
+  <data name="TakenFor" xml:space="preserve">
+    <value>Taken For</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="DescDocumentationLong" xml:space="preserve">
+    <value>Must be less than 150 characters</value>
+  </data>
+  <data name="DescDocumentationName1" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DescDocumentationRequired" xml:space="preserve">
+    <value>Description is required</value>
+  </data>
+  <data name="DocumentsDetail" xml:space="preserve">
+    <value>Documentation Details</value>
+  </data>
+  <data name="BusinessTypesCreate" xml:space="preserve">
+    <value>Business Type Create</value>
+  </data>
+  <data name="BusinessTypesDelete" xml:space="preserve">
+    <value>Business Type Delete</value>
+  </data>
+  <data name="BusinessTypesDetail" xml:space="preserve">
+    <value>Business Type Details</value>
+  </data>
+  <data name="BusinessTypesEdit" xml:space="preserve">
+    <value>Business Type Edit</value>
+  </data>
+  <data name="ContractorsCreate" xml:space="preserve">
+    <value>Contractor Create</value>
+  </data>
+  <data name="ContractorsDelete" xml:space="preserve">
+    <value>Contractor Delete</value>
+  </data>
+  <data name="ContractorsDetail" xml:space="preserve">
+    <value>Contractor Details</value>
+  </data>
+  <data name="ContractorsEdit" xml:space="preserve">
+    <value>Contractor Edit</value>
+  </data>
+  <data name="UsersForContractor" xml:space="preserve">
+    <value>Users for Contractor</value>
+  </data>
+  <data name="UsersCreate" xml:space="preserve">
+    <value>User Create</value>
+  </data>
+  <data name="UsersDelete" xml:space="preserve">
+    <value>User Delete</value>
+  </data>
+  <data name="UsersDetail" xml:space="preserve">
+    <value>User Details</value>
+  </data>
+  <data name="UsersEdit" xml:space="preserve">
+    <value>User Edit</value>
+  </data>
+  <data name="Requirements" xml:space="preserve">
+    <value>Requirements</value>
+  </data>
+  <data name="EtyPresentation" xml:space="preserve">
+    <value>Presentation</value>
+  </data>
+  <data name="Attach" xml:space="preserve">
+    <value>Attach</value>
+  </data>
+  <data name="PresentationDelete" xml:space="preserve">
+    <value>Presentation Delete</value>
+  </data>
+  <data name="EtyPresentations" xml:space="preserve">
+    <value>Presentations</value>
+  </data>
+  <data name="PresentationCount" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="AuditorsForCustomer" xml:space="preserve">
+    <value>Auditors for Customer</value>
+  </data>
+  <data name="FormLogin" xml:space="preserve">
+    <value>Login Form</value>
+  </data>
+  <data name="LoginContractorsTitle" xml:space="preserve">
+    <value>Login Contractors</value>
+  </data>
+  <data name="LoginCustomersTitle" xml:space="preserve">
+    <value>Login Customers</value>
+  </data>
+  <data name="PasswordLogin" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="UsernameLogin" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="SiccoMainPageTitle" xml:space="preserve">
+    <value>Sicco -  Sistema Administracion de Contratistas</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="ReportsFromContractors" xml:space="preserve">
+    <value>From Contractors</value>
+  </data>
+  <data name="ReportsFromEmployees" xml:space="preserve">
+    <value>From Employees</value>
+  </data>
+  <data name="ReportsFromVehicles" xml:space="preserve">
+    <value>From Vehicles</value>
+  </data>
+  <data name="DocumentFiles" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="SocialSecurityNumber" xml:space="preserve">
+    <value>Social Security Number</value>
+  </data>
+  <data name="EmployeeRelationshipType" xml:space="preserve">
+    <value>Relationship Type</value>
+  </data>
+  <data name="EmployeeRelationshipType_Required" xml:space="preserve">
+    <value>Relationship Type is EmployeeRelationshipType_Required</value>
+  </data>
+  <data name="EtyContract" xml:space="preserve">
+    <value>Contract</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="LoginAdminTitle" xml:space="preserve">
+    <value>Login Administrators</value>
+  </data>
+  <data name="EtyBusinessTypeTemplatesTitle" xml:space="preserve">
+    <value>Business Type Templates List</value>
+  </data>
+  <data name="EtyBusinessTypeTemplates" xml:space="preserve">
+    <value>Business Type Template</value>
+  </data>
+  <data name="EtyBusinessTypeTemplate" xml:space="preserve">
+    <value>Business Type Template</value>
+  </data>
+  <data name="BusinessTypeTemplatesCreate" xml:space="preserve">
+    <value>Business Type Template Create</value>
+  </data>
+  <data name="BusinessTypeTemplatesDelete" xml:space="preserve">
+    <value>Business Type Template Delete</value>
+  </data>
+  <data name="BusinessTypeTemplatesDetail" xml:space="preserve">
+    <value>Business Type Template Details</value>
+  </data>
+  <data name="BusinessTypeTemplatesEdit" xml:space="preserve">
+    <value>Business Type Template Edit</value>
+  </data>
+  <data name="DocumentsTemplateCreate" xml:space="preserve">
+    <value>Documentation Template Create</value>
+  </data>
+  <data name="DocumentsTemplateDelete" xml:space="preserve">
+    <value>Documentation Template Delete</value>
+  </data>
+  <data name="DocumentsTemplateDetail" xml:space="preserve">
+    <value>Documentation Template Details</value>
+  </data>
+  <data name="DocumentsTemplateEdit" xml:space="preserve">
+    <value>Documentation Template Edit</value>
+  </data>
+  <data name="EtyDocumentationsTemplate" xml:space="preserve">
+    <value>Documentation Template</value>
+  </data>
+  <data name="EtyDocumentationTemplate" xml:space="preserve">
+    <value>Documentation Template</value>
+  </data>
+  <data name="EtyDocumentationTemplateTitle" xml:space="preserve">
+    <value>Documentation Template List</value>
+  </data>
+  <data name="CustomerCreate" xml:space="preserve">
+    <value>Customer Create</value>
+  </data>
+  <data name="CustomerDelete" xml:space="preserve">
+    <value>Customer Delete</value>
+  </data>
+  <data name="CustomerDetail" xml:space="preserve">
+    <value>Customer Details</value>
+  </data>
+  <data name="CustomerEdit" xml:space="preserve">
+    <value>Customer Edit</value>
+  </data>
+  <data name="Generate" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+  <data name="SP_MSG_EXIST_DOCUMENTATION" xml:space="preserve">
+    <value>Already exist documentation</value>
+  </data>
+  <data name="SP_MSG_EXIST_REQUIREMENT" xml:space="preserve">
+    <value>Already exist requirements for Customer on Period</value>
+  </data>
+  <data name="RegenerateMatrix" xml:space="preserve">
+    <value>Regen. Matrix</value>
+  </data>
+  <data name="BtnAccesoAdmin" xml:space="preserve">
+    <value>Administrators Access</value>
+  </data>
+  <data name="BtnAccesoAuditores" xml:space="preserve">
+    <value>Auditors Access</value>
+  </data>
+  <data name="BtnAccesoClientes" xml:space="preserve">
+    <value>Customers Access</value>
+  </data>
+  <data name="BtnAccesoContratistas" xml:space="preserve">
+    <value>Contractors Access</value>
+  </data>
+  <data name="CopyRightFooter" xml:space="preserve">
+    <value>©2016 All Rights Reserved. Sicco!. Privacy and Terms</value>
+  </data>
+  <data name="TtlBienvenida" xml:space="preserve">
+    <value>Welcome to Sicco</value>
+  </data>
+  <data name="ContractsForContractor" xml:space="preserve">
+    <value>Contracts for Contractor</value>
+  </data>
+  <data name="ContractCode" xml:space="preserve">
+    <value>Contract Code</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="ContractDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ContractDescription_Long" xml:space="preserve">
+    <value>Must be less than 250 characters</value>
+  </data>
+  <data name="ContractDescription_Required" xml:space="preserve">
+    <value>Contract Description is required</value>
+  </data>
+  <data name="ContractCreate" xml:space="preserve">
+    <value>Contract Create</value>
+  </data>
+  <data name="ContractDelete" xml:space="preserve">
+    <value>Contract Delete</value>
+  </data>
+  <data name="ContractEdit" xml:space="preserve">
+    <value>Contract Edit</value>
+  </data>
+  <data name="AssignedEmployees" xml:space="preserve">
+    <value>Assigned Employees</value>
+  </data>
+  <data name="EmployeeContractDelete" xml:space="preserve">
+    <value>Delete Employee Contract</value>
+  </data>
+  <data name="EtyEmployeeContract" xml:space="preserve">
+    <value>Employee Contract</value>
+  </data>
+  <data name="ToAssignEmployee" xml:space="preserve">
+    <value>To Assign Employee</value>
+  </data>
+  <data name="AssignedVehicles" xml:space="preserve">
+    <value>Assigned Vehicles</value>
+  </data>
+  <data name="EtyVehicleContract" xml:space="preserve">
+    <value>Vehicle Contract</value>
+  </data>
+  <data name="ToAssignVehicle" xml:space="preserve">
+    <value>To Assign Vehicle</value>
+  </data>
+  <data name="VehicleContractDelete" xml:space="preserve">
+    <value>Delete Vehicle Contract</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="AssignDocumentation" xml:space="preserve">
+    <value>Assign Documentation</value>
+  </data>
+  <data name="ToAssignDocumentation" xml:space="preserve">
+    <value>To Assign Documentation</value>
+  </data>
+  <data name="EtyUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="EtyContracts" xml:space="preserve">
+    <value>Contracts</value>
+  </data>
+  <data name="ContractEndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="ContractStartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="EtyAuditors" xml:space="preserve">
+    <value>Auditors</value>
+  </data>
+  <data name="AssignedCustomers" xml:space="preserve">
+    <value>Assigned Customers</value>
+  </data>
+  <data name="AssignCustomers" xml:space="preserve">
+    <value>Assign Customer</value>
+  </data>
+  <data name="Take" xml:space="preserve">
+    <value>Take</value>
+  </data>
+  <data name="DocumentAttach_Required" xml:space="preserve">
+    <value>You must attach a Document</value>
+  </data>
+  <data name="EmployeeIdentNumber_Required" xml:space="preserve">
+    <value>Indentification Number is Required</value>
+  </data>
+  <data name="RestrictAccess" xml:space="preserve">
+    <value>Restrict Access</value>
+  </data>
+  <data name="InvalidUsernameOrPassword" xml:space="preserve">
+    <value>Invalid username or password</value>
+  </data>
+  <data name="IsNotEmailConfirmed" xml:space="preserve">
+    <value>You need to confirm the email to be able to enter the Application.</value>
+  </data>
+</root>

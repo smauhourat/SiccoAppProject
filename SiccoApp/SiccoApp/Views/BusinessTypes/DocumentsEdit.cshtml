@@ -1,0 +1,74 @@
+﻿@model SiccoApp.Models.EditAssignDocumentViewModel
+
+@{
+    ViewBag.Title = @Resources.DocumentsEdit;
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>@Resources.EtyDocumentation</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>@Resources.DocumentsEdit <small><!--detalle subtitulo--></small></h2>
+                        <ul class="nav navbar-right panel_toolbox"></ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <!--Aca iria el FORM-->
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal form-label-left" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.DocumentationBusinessTypeID)
+                            @Html.HiddenFor(model => model.DocumentationID)
+                            @Html.HiddenFor(model => model.BusinessTypeID)
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DocumentationDesc, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DisplayFor(model => model.DocumentationDesc)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DocumentationPeriodicityID, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownList("DocumentationPeriodicityID", null, htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
+                                    @Html.ValidationMessageFor(model => model.DocumentationPeriodicityID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RestrictAccess, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.RestrictAccess)
+                                    @Html.ValidationMessageFor(model => model.RestrictAccess, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button type="submit" class="btn btn-success">@Resources.Save</button>
+                                    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("AssignedDocuments", "BusinessTypes", new { id = Model.BusinessTypeID })';return false;">@Resources.BackToList</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Esto esta reemplazando a -->
+@*@section Scripts {@Scripts.Render("~/bundles/jqueryval")}*@
+<script src="/Scripts/jquery.validate.js"></script>
+<script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+

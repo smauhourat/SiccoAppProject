@@ -1,0 +1,123 @@
+﻿@model IEnumerable<SiccoApp.Models.EditUserViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>@Resources.Users</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Usuarios Administradores <small><!--detalle subtitulo--></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Register", "Account")'">@Resources.CreateNew</button>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+
+                            <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">@Resources.UserName </th>
+                                        <th class="column-title">@Resources.FirstName </th>
+                                        <th class="column-title">@Resources.LastName </th>
+                                        <th class="column-title">@Resources.Email </th>
+                                        <th class="column-title no-link last">
+                                            <span class="nobr">Accion</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="odd pointer">
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.UserName) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.FirstName) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.LastName) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.Email)</td>
+                                            <td class="a-center a-center last">
+                                                @*@Html.ActionLink(@Resources.Edit, "Edit", new { id = item.Id }) |*@
+                                                @Html.ActionLink(@Resources.Roles, "UserRoles", new { id = item.Id }) |
+                                                @Html.ActionLink(@Resources.Edit, "Edit", new { id = item.Id }) |
+                                                @Html.ActionLink(@Resources.Delete, "Delete", new { id = item.Id })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Register", "Account")'">@Resources.CreateNew</button>
+                        </div>
+
+                    </div>
+
+                    @*<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
+                        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Account")';return false;">@Resources.BackToList</button>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Register") 
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink(@Resources.Edit, "Edit", new { id = item.Id }) |
+            @Html.ActionLink(@Resources.Roles, "UserRoles", new { id = item.Id }) |
+            @Html.ActionLink(@Resources.Delete, "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>*@

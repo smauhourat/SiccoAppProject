@@ -1,0 +1,85 @@
+﻿@model SiccoApp.Models.CustomerAuditorsListViewModel
+
+@{
+    ViewBag.Title = "Customer Auditor Users";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>@Resources.Users</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>@Resources.AuditorsForCustomer <small><!--detalle subtitulo--></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("UsersCreate", "CustomerAuditors", new { customerID = Model.CustomerID })'">@Resources.CreateNew</button>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+                            <!--<p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+
+                            <div class="table-responsive">
+                                <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                    <thead>
+                                        <tr class="headings">
+                                            <th>
+                                                @*<input type="checkbox" id="check-all" class="flat">*@
+                                            </th>
+                                            <th class="column-title">@Resources.UserName </th>
+                                            <th class="column-title">@Resources.FirstName </th>
+                                            <th class="column-title">@Resources.LastName </th>
+                                            <th class="column-title">@Resources.Email </th>
+                                            <th class="column-title no-link text-center">
+                                                <span class="nobr">Acciones</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="7">
+                                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.CustomerAuditorUsers)
+                                        {
+                                            <tr class="odd pointer">
+                                                <td class="a-center ">
+                                                    @*<input type="checkbox" class="flat" name="table_records">*@
+                                                </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.UserName) </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.FirstName) </td>
+                                                <td class="text-nowrap">@Html.DisplayFor(modelItem => item.LastName) </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.Email) </td>
+                                                <td class="a-center a-center last text-nowrap text-right">
+                                                    @Html.ActionLink(@Resources.Edit, "UsersEdit", new { customerAuditorID = item.CustomerAuditorID }) |
+                                                    @Html.ActionLink(@Resources.Delete, "UsersDelete", new { customerAuditorID = item.CustomerAuditorID })
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("UsersCreate", "CustomerAuditors", new { customerID = Model.CustomerID })'">@Resources.CreateNew</button>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<SiccoApp.Persistence.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>@Resources.EtyCustomers</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><!--Subtitulo--> <small><!--detalle subtitulo--></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "Customers")'">@Resources.CreateNew</button>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+
+                            <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.CompanyName) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.TaxIdNumber) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Country) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.State) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.City) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Address) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.PhoneNumber) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Active) </th>
+                                        <th class="column-title">
+                                            <span class="nobr">Matriz Docs.</span>
+                                        </th>
+                                        <th class="column-title no-link text-right">
+                                            <span class="nobr">Accion</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="odd pointer">
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.CompanyName) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.TaxIdNumber) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.Country.CountryName) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.State.StateName) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.City)</td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.Address)</td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.Active)</td>
+                                            <td class="a-center a-center last">
+                                                @Html.ActionLink(Resources.RegenerateMatrix, "GenerateDocumentationMatrix", new { customerID = item.CustomerID })
+                                            </td> 
+                                            <td class="a-center a-center text-right">
+                                                @Html.ActionLink(@Resources.Edit, "Edit", new { id = item.CustomerID }) |
+                                                @Html.ActionLink(@Resources.Details, "Details", new { id = item.CustomerID }) |
+                                                @Html.ActionLink(@Resources.Delete, "Delete", new { id = item.CustomerID }) |
+                                                @Html.ActionLink(@Resources.Users, "Users", new { id = item.CustomerID })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "Customers")'">@Resources.CreateNew</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

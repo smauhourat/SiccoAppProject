@@ -1,0 +1,81 @@
+﻿@model SiccoApp.Models.ContractorEmployeesViewModel
+
+@{
+    ViewBag.Title = "Contractor Employees";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>@Resources.EtyEmployees</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>@Resources.EmployeesForContractor : '@Html.DisplayFor(model => model.CompanyName)' <small><!--detalle subtitulo--></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("EmployeesCreate", "Contractors", new { contractorID = Model.ContractorID })'">@Resources.CreateNew</button>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+                            <!--<p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+
+                            <div class="table-responsive">
+                                <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                    <thead>
+                                        <tr class="headings">
+                                            <th class="column-title">@Resources.FirstName </th>
+                                            <th class="column-title">@Resources.SocialSecurityNumber </th>
+                                            <th class="column-title">@Resources.IdentificationNumber </th>
+                                            <th class="column-title">@Resources.EmployeeRelationshipType </th>
+                                            <th class="column-title no-link text-right">
+                                                <span class="nobr">Action</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Employees)
+                                        {
+                                            <tr class="odd pointer">
+                                                <td class="">@Html.DisplayFor(modelItem => item.FullName) </td>
+                                                <td class="text-nowrap">@Html.DisplayFor(modelItem => item.SocialSecurityNumber) </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.IdentificationNumber) </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.EmployeeRelationshipType.Description) </td>
+                                                <td class="a-center a-center text-right text-nowrap">
+                                                    @Html.ActionLink(@Resources.Edit, "EmployeesEdit", new { employeeID = item.EmployeeID }) |
+                                                    @Html.ActionLink(@Resources.Delete, "EmployeesDelete", new { employeeID = item.EmployeeID, contractorID = item.ContractorID })
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("EmployeesCreate", "Contractors", new { contractorID = Model.ContractorID })'">@Resources.CreateNew</button>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
+                        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Contractors")';return false;">@Resources.BackToList</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,13 @@
+﻿.login_wrapper2 {
+    right: 0px;
+    margin: 0px auto;
+    margin-top: 5%;
+    max-width: 850px;
+    position: relative;
+}
+
+.btn-center {
+    display: block;
+    float:none;
+    margin-left:unset;
+}

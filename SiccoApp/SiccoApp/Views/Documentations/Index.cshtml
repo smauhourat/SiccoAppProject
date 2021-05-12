@@ -1,0 +1,72 @@
+﻿@model IEnumerable<SiccoApp.Persistence.Documentation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>@Resources.EtyDocumentations</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><!--Subtitulo--> <small><!--detalle subtitulo--></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "Documentations")'">@Resources.CreateNew</button>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+                            <!--<p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+
+
+                            <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.DocumentationCode) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Description) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.EntityTypeID) </th>
+                                        <th class="column-title no-link text-right">
+                                            <span class="nobr">Acciones</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="odd pointer">
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.DocumentationCode) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.Description) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.EntityType.Description) </td>
+                                            <td class="a-center a-center text-right">
+                                                @Html.ActionLink(@Resources.Edit, "Edit", new { id = item.DocumentationID }) |
+                                                @Html.ActionLink(@Resources.Details, "Details", new { id = item.DocumentationID }) |
+                                                @Html.ActionLink(@Resources.Delete, "Delete", new { id = item.DocumentationID })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "Documentations")'">@Resources.CreateNew</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div> 

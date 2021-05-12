@@ -1,0 +1,126 @@
+﻿@model SiccoApp.Models.ContractorEmployeesViewModel
+
+@{
+    ViewBag.Title = "Contractor Employees";
+    Layout = "~/Views/Shared/_LayoutContractor.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>@Resources.EtyEmployees</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>@Resources.EmployeesForContractor : '@Html.DisplayFor(model => model.CompanyName)' <small><!--detalle subtitulo--></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "ContractorEmployees", new { contractorID = Model.ContractorID })'">@Resources.CreateNew</button>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+                            <!--<p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+
+                            <div class="table-responsive">
+                                <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                    <thead>
+                                        <tr class="headings">
+                                            <th class="column-title">@Resources.FullName </th>
+                                            <th class="column-title">@Resources.SocialSecurityNumber </th>
+                                            <th class="column-title">@Resources.IdentificationNumber </th>
+                                            <th class="column-title">@Resources.EmployeeRelationshipType </th>
+                                            <th class="column-title no-link text-right">
+                                                <span class="nobr">Action</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Employees)
+                                        {
+                                            <tr class="odd pointer">
+                                                <td class="">@Html.DisplayFor(modelItem => item.FullName) </td>
+                                                <td class="text-nowrap">@Html.DisplayFor(modelItem => item.SocialSecurityNumber) </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.IdentificationNumber) </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.EmployeeRelationshipType.Description) </td>
+                                                <td class="a-center a-center text-right text-nowrap">
+                                                    <a href="javascript:void(0);" class="anchorDetail" data-id="@item.EmployeeID">Credencial</a>  |
+                                                    @Html.ActionLink(@Resources.Edit, "Edit", new { employeeID = item.EmployeeID }) |
+                                                    @Html.ActionLink(@Resources.Delete, "Delete", new { employeeID = item.EmployeeID, contractorID = item.ContractorID })
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "ContractorEmployees", new { contractorID = Model.ContractorID })'">@Resources.CreateNew</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id='myModal' class='modal'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    var TeamDetailPostBackURL = '/ContractorEmployees/Credential';
+    $(function () {
+        $(".anchorDetail").click(function () {
+            debugger;
+            var $buttonClicked = $(this);
+            var id = $buttonClicked.attr('data-id');
+            var options = { "backdrop": "static", keyboard: true };
+
+            $.ajax({
+                type: "GET",
+                url: TeamDetailPostBackURL,
+                contentType: "application/json; charset=utf-8",
+                data: { "employeeID": id },
+                datatype: "json",
+                success: function (data) {
+                    debugger;
+                    $('#myModalContent').html(data);
+                    $('#myModal').modal(options);
+                    $('#myModal').modal('show');
+
+                },
+                error: function () {
+                    alert("Dynamic content load failed.");
+                }
+            });
+        });
+        $("#closebtn").on('click',function(){
+            $('#myModal').modal('hide');
+
+            $("#closbtn").click(function () {
+                $('#myModal').modal('hide');
+            });
+        });
+    })
+</script>
+
+
+
+
+

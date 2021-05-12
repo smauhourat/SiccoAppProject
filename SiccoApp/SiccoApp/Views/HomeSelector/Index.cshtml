@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@Resources.SiccoMainPageTitle</title>
+
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/css/custom.min.css")
+    @Styles.Render("~/Content/css/customsan.css")
+    @Styles.Render("~/Content/fonts/css/font-awesome.min.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+
+<body class="login">
+    <div class="login_wrapper">
+        <img class=".img-responsive" src="~/Content/images/logocolor.png" height="50px">
+        <div class="clearfix"></div>
+        <h2>@Resources.TtlBienvenida</h2>
+        <p><a href="/Admin/Login?ReturnUrl=%2FHomeAdmin" class="btn btn-primary btn-lg">@Resources.BtnAccesoAdmin</a></p>
+        <p><a href="/AdminCustomer/Login?ReturnUrl=%2FHomeCustomer" class="btn btn-primary btn-lg">@Resources.BtnAccesoClientes</a></p>
+        @*<p><a href="/Admin/Login?ReturnUrl=%2FHomeAuditor" class="btn btn-primary btn-lg">@Resources.BtnAccesoAuditores</a></p>*@
+        <p><a href="/AdminAuditor/Login?ReturnUrl=%2FHomeAuditor" class="btn btn-primary btn-lg">@Resources.BtnAccesoAuditores</a></p>
+        <p><a href="/AdminContractor/Login?ReturnUrl=%2FHomeContractor" class="btn btn-primary btn-lg">@Resources.BtnAccesoContratistas</a></p>
+@{
+    //ViewBag.Title = "Home Page";
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+@helper selected(string c, string culture)
+{
+if (c == culture)
+{
+        @:checked="checked"
+    }
+}        
+@using (Html.BeginForm("SetCulture", "HomeSelector"))
+{
+    @*<fieldset>
+        <legend>@Resources.ChooseYourLanguage</legend>
+        <div class="control-group">
+            <div class="controls">
+                <label for="en-us">
+                    <input name="culture" id="en-us" value="en-us" type="radio" @selected("en-us", culture) onclick="submit();" /> English
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label for="es">
+                    <input name="culture" id="es" value="es" type="radio" @selected("es", culture) onclick="submit();" /> Español
+                </label>
+            </div>
+        </div>
+    </fieldset>*@
+
+}
+        <div class="clearfix"></div>
+        <div class="separator">
+            <footer style="margin-left:0px">
+                <div>
+                    <img class=".img-responsive" src="~/Content/images/logocolor.png" height="30px">
+                    <p>@Resources.CopyRightFooter</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/bootstrap.js")
+</body>
+</html>

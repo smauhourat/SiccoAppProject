@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@Resources.SiccoMainPageTitle</title>
+
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/css/custom.min.css")
+    @Styles.Render("~/Content/css/customsan.css")
+    @Styles.Render("~/Content/fonts/css/font-awesome.min.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body class="login">
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <div class="container body-content">
+            @*<h1 class="display-4">Pricing</h1>*@
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer style="margin-left:0px">
+                    <div>
+                        <img class=".img-responsive" src="~/Content/images/logocolor.png" height="30px">
+                        <p>@Resources.CopyRightFooter</p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/bootstrap.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

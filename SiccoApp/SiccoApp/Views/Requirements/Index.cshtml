@@ -1,0 +1,235 @@
+﻿@*https://github.com/ajsaulsberry/BlipDrop/blob/master/BlipDrop/Views/Customer/Create.cshtml*@
+@model SiccoApp.Models.RequirementListViewModel
+
+@{
+    ViewBag.Title = "Requerimientos";
+    //Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutAuditor.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Requerimientos</h3>
+            </div>
+            
+            @*<div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                        </span>
+                    </div>
+                </div>
+            </div>*@
+
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Listado de Requerimientos con sus Presentaciones <small></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="" data-toggle="modal" data-target=".bs-example-modal-lg">
+                                        Ayuda Estados <i class="fa fa-question-circle fa-lg"></i>
+                                    </a> 
+                                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="myModalLabel">Detalle Estados Requerimientos</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <strong>CREATED</strong> (Cuando se crea un requerimiento pero aun no esta disponible para el Sistema)<br />
+                                                    <strong>PENDING</strong> (Cuando pasa a estar disponible para el Sistema, y no tiene presentaciones para procesar)<br />
+                                                    <strong>TOPROCESS</strong> (Cuando se le adjunto una Presentacion pero aun no ha sido "tomada" por un Auditor)<br />
+                                                    <strong>PROCESSING</strong> (Cuando la Presentacion adjunta es tomada por un Auditor para su analisis)<br />
+                                                    <strong>APPROVED</strong> (Cuando tiene una Presentacion Aprobada) ESTADO FINAL<br />
+                                                    <strong>REJECTED</strong> (Cuando no tiene ninguna Presentacion Aprobada y ademas se vencio la fecha de presentaciones) ESTADO FINAL<br />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        @using (Html.BeginForm("Index", "Requirements", FormMethod.Get))
+                        {
+                        <div class="x_panel">
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <label class="col-form-label col-md-2 col-sm-2 label-align" for="CustomerID">@Resources.EtyCustomer:</label>
+                                @Html.DropDownListFor(x => Model.CustomerID, new SelectList(Model.Customers, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Customer" })
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <label class="col-form-label col-md-2 col-sm-2 label-align" for="ContractorID">@Resources.EtyContractor:</label>
+                                @Html.DropDownListFor(x => Model.ContractorID, new SelectList(Model.Contractors, "Value", "Text"), htmlAttributes: new { @class = "form-control", @id = "Contractor" })
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <label class="col-form-label col-md-2 col-sm-2 label-align" for="ContractorID">@Resources.Period.Trim():</label>
+                                @Html.DropDownList("PeriodID", null, "-- Todos -- ", htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <label class="col-form-label col-md-2 col-sm-2 label-align" for="RequirementStatusID">@Resources.RequirementStatus:</label>
+                                @Html.DropDownList("RequirementStatusID", null, "-- Todos -- ", htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <label class="col-form-label label-align" for="ResourceTypeID">@Resources.ResourceType:</label>
+                                @Html.DropDownList("EntityTypeID", null, "-- Todos -- ", htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <button type="submit" class="btn btn-success">@Resources.Search</button>
+                            </div>
+                            @*<ul class="list-inline">
+                                <li>
+                                    <label class="col-form-label col-md-2 col-sm-2 label-align" for="CustomerID">@Resources.EtyCustomer:</label> 
+                                    @Html.DropDownListFor(x => Model.CustomerID, new SelectList(Model.Customers, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Customer" })
+                                </li>
+                                <li>
+                                    <label class="col-form-label col-md-2 col-sm-2 label-align" for="ContractorID">@Resources.EtyContractor:</label>
+                                    @Html.DropDownListFor(x => Model.ContractorID, new SelectList(Model.Contractors, "Value", "Text"), htmlAttributes: new { @class = "form-control", @id = "Contractor" })
+                                </li>
+                                <li>
+                                    <label class="col-form-label col-md-2 col-sm-2 label-align" for="ContractorID">@Resources.Period.Trim():</label>
+                                    @Html.DropDownList("PeriodID", null, "-- Todos -- ", htmlAttributes: new { @class = "form-control" })
+                                </li>
+                                <li>
+                                    <button type="submit" class="btn btn-success">@Resources.Search</button>
+                                </li>
+                            </ul>
+                            <ul class="list-inline">
+                                <li>
+                                    <label class="col-form-label col-md-2 col-sm-2 label-align" for="RequirementStatusID">@Resources.RequirementStatus:</label>
+                                    @Html.DropDownList("RequirementStatusID", null, "-- Todos -- ", htmlAttributes: new { @class = "form-control" })
+                                </li>
+                                <li>
+                                    <label class="col-form-label col-md-2 col-sm-2 label-align" for="ResourceTypeID">@Resources.ResourceType:</label>
+                                    @Html.DropDownList("EntityTypeID", null, "-- Todos -- ", htmlAttributes: new { @class = "form-control" })
+                                </li>
+                            </ul>*@
+                        </div>
+                        }
+
+                        @*<div class="panel">
+                            <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h5 class="panel-title">Ver Estados de los Requerimientos</h5>
+                            </a>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <strong>CREATED</strong> (Cuando se crea un requerimiento pero aun no esta disponible para el Sistema)<br />
+                                    <strong>PENDING</strong> (Cuando pasa a estar disponible para el Sistema, y no tiene presentaciones para procesar)<br />
+                                    <strong>TOPROCESS</strong> (Cuando se le adjunto una Presentacion pero aun no ha sido "tomada" por un Auditor)<br />
+                                    <strong>PROCESSING</strong> (Cuando la Presentacion adjunta es tomada por un Auditor para su analisis)<br />
+                                    <strong>APPROVED</strong> (Cuando tiene una Presentacion Aprobada) ESTADO FINAL<br />
+                                    <strong>REJECTED</strong> (Cuando no tiene ninguna Presentacion Aprobada y ademas se vencio la fecha de presentaciones) ESTADO FINAL<br />
+                                </div>
+                            </div>
+                        </div>*@
+                        <div class="x_content">
+                            <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th></th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().DocumentationCode)</th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().Description)</th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().ResourceType)</th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().ResourceIdentification)</th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().PeriodID)</th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().RequirementStatus)</th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().DueDate)</th>
+                                        <th class="column-title no-link last">
+                                            <span class="nobr">@Resources.Action</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Requirements)
+                                    {
+                                        <tr class="odd pointer">
+                                            <td class="a-center ">
+                                                <i class="fa fa-square" style="color:@item.Semaphore;font-size:20px"></i>
+                                            </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.DocumentationCode) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.Description)</td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.ResourceType)</td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.ResourceIdentification)</td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.PeriodID)</td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.RequirementStatus)</td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.DueDate)</td>
+                                            @*<td class="a-center a-center last"></td>*@
+                                            <td style="white-space:nowrap">
+                                                @if (item.RequirementStatus == SiccoApp.Persistence.RequirementStatus.Pending)
+                                                {
+                                                    @*@Html.ActionLink("Adjuntar", "PresentationAttach", new { requirementID = item.RequirementID, customerID = Model.CustomerID, contractorID = Model.ContractorID });*@
+                                                    @Html.ActionLink("Adjuntar", "PresentationAttach", new { requirementID = item.RequirementID, customerID = ViewBag.CustomerID, contractorID = ViewBag.ContractorID });
+                                                }
+                                                @if (item.RequirementStatus == SiccoApp.Persistence.RequirementStatus.ToProcess)
+                                                {
+                                                    @Html.ActionLink("Ver", "PresentationsIndex", new { requirementID = item.RequirementID, customerID = ViewBag.CustomerID, contractorID = ViewBag.ContractorID });
+                                                }
+                                                else
+                                                {
+                                                    @Html.ActionLink("Ver", "PresentationsIndex", new { requirementID = item.RequirementID, customerID = ViewBag.CustomerID, contractorID = ViewBag.ContractorID });
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                            @*<button type="button" class="btn btn-success" onclick="location.href='@Url.Action("CustomersCreate", "CustomerAdminAuditors", new {userID = Model.UserId })'">@Resources.AssignCustomers</button>*@
+                        </div>
+                        <div class="nav navbar-right panel_toolbox">
+                            @*<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Users", "CustomerAdminAuditors")';return false;">@Resources.BackToList</button>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script type="text/javascript">
+            $('#Customer').change(function () {
+                var selectedCountry = $("#Customer").val();
+                console.log(selectedCountry);
+                var regionsSelect = $('#Contractor');
+                regionsSelect.empty();
+                if (selectedCountry != null && selectedCountry != '') {
+                    console.log("1111");
+
+                    var getElem = $.getJSON('@Url.Action("GetContractors")', { customerID: selectedCountry })
+                        .done(function (regions) {
+                            console.log("22222");
+                            if (regions != null && !jQuery.isEmptyObject(regions))
+                            {
+                                regionsSelect.append($('<option/>', {
+                                    value: null,
+                                    text: ""
+                                }));
+                                $.each(regions, function (index, region) {
+                                    regionsSelect.append($('<option/>', {
+                                        value: region.Value,
+                                        text: region.Text
+                                    }));
+                                });
+                            };
+                    });
+
+
+                }
+            });
+    </script>

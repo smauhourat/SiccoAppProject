@@ -1,0 +1,9 @@
+﻿ALTER ROLE [db_owner] ADD MEMBER [IIS APPPOOL\SiccoApp];
+
+
+GO
+ALTER ROLE [db_owner] ADD MEMBER [NT AUTHORITY\SYSTEM];
+
+
+GO
+

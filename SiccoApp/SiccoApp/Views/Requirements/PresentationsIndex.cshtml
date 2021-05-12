@@ -1,0 +1,129 @@
+﻿@model SiccoApp.Models.PresentationListViewModel
+
+@{
+    ViewBag.Title = "Presentaciones";
+    //Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutAuditor.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Presentaciones</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><small></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="" data-toggle="modal" data-target=".bs-example-modal-lg">
+                                        Ayuda Estados <i class="fa fa-question-circle fa-lg"></i>
+                                    </a>
+                                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="myModalLabel">Detalle Estados Requerimientos</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <strong>PENDING</strong> (Cuando se sube el documento y queda disponible) en este estado aun puede ser eliminado por el Contratista o Auditor<br />
+                                                    <strong>TOPROCESS</strong> (Marcado listo para ser tomado por un Auditor) Este estado en ppio puede ser manejado de forma automatica<br />
+                                                    <strong>PROCESSING</strong> (Cuando es tomado por un Auditor para su analisis) dispara el PROCESSING del Requerimiento<br />
+                                                    <strong>APPROVED</strong> (Cuando el Auditor aprueba el Requerimiento en base al analisis del documento presentado) ESTADO FINAL, dispara el APPROVED del Requerimiento<br />
+                                                    <strong>REJECTED</strong> (Cuando el Auditor NO aprueba el Requerimiento) ESTADO FINAL, dipara el PENDING del Requerimiento.<br />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        @*<div class="panel">
+                            <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h5 class="panel-title">Ver Estados de las Presentaciones</h5>
+                            </a>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <strong>PENDING</strong> (Cuando se sube el documento y queda disponible) en este estado aun puede ser eliminado por el Contratista o Auditor<br />
+                                    <strong>TOPROCESS</strong> (Marcado listo para ser tomado por un Auditor) Este estado en ppio puede ser manejado de forma automatica<br />
+                                    <strong>PROCESSING</strong> (Cuando es tomado por un Auditor para su analisis) dispara el PROCESSING del Requerimiento<br />
+                                    <strong>APPROVED</strong> (Cuando el Auditor aprueba el Requerimiento en base al analisis del documento presentado) ESTADO FINAL, dispara el APPROVED del Requerimiento<br />
+                                    <strong>REJECTED</strong> (Cuando el Auditor NO aprueba el Requerimiento) ESTADO FINAL, dipara el PENDING del Requerimiento.<br />
+                                </div>
+                            </div>
+                        </div>*@
+                        <div class="x_content">
+                            <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th></th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Presentations.FirstOrDefault().PresentationDate)</th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Presentations.FirstOrDefault().PresentationStatus)</th>
+                                        <th class="column-title">Auditor</th>
+                                        <th class="column-title">Observaciones</th>
+                                        <th class="column-title">@Resources.Download</th>
+                                        <th class="column-title no-link last">
+                                            <span class="nobr">@Resources.Action</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Presentations)
+                                    {
+                                        <tr class="odd pointer">
+                                            <td class="a-center ">
+                                                <i class="fa fa-square" style="color:@item.Semaphore;font-size:20px"></i>
+                                            </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.PresentationDate) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.PresentationStatus)</td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.TakenForFullName)</td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.Observations)</td>
+                                            <td class=" ">
+                                                <a href="~/Documents/@item.DocumentFiles" target="_blank">
+                                                    @Resources.DownloadDocument
+                                                </a>
+                                            </td>
+                                            <td style="white-space:nowrap">
+                                                @if (item.PresentationStatus == SiccoApp.Persistence.PresentationStatus.Pending)
+                                                {
+                                                    @Html.ActionLink(@Resources.Delete, "PresentationDelete", new { presentationID = item.PresentationID, requirementID = item.RequirementID, customerID = ViewBag.CustomerID, contractorID = ViewBag.ContractorID });
+                                                    @Html.Encode(" | ");
+                                                    @Html.ActionLink(@Resources.Take, "PresentationTake", new { presentationID = item.PresentationID, customerID = ViewBag.CustomerID, contractorID = ViewBag.ContractorID })
+                                                }
+                                                @if (item.PresentationStatus == SiccoApp.Persistence.PresentationStatus.Processing)
+                                                {
+                                                    @Html.ActionLink(@Resources.Approve, "PresentationApprove", new { presentationID = item.PresentationID, customerID = ViewBag.CustomerID, contractorID = ViewBag.ContractorID });
+                                                    @Html.Encode(" | ");
+                                                    @Html.ActionLink(@Resources.Reject, "PresentationReject", new { presentationID = item.PresentationID, customerID = ViewBag.CustomerID, contractorID = ViewBag.ContractorID });
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                            @*<button type="button" class="btn btn-success" onclick="location.href='@Url.Action("CustomersCreate", "CustomerAdminAuditors", new {userID = Model.UserId })'">@Resources.AssignCustomers</button>*@
+                        </div>
+                        <div class="nav navbar-right panel_toolbox">
+                            @*<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Requirements")';return false;">@Resources.BackToList</button>*@
+                            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Requirements", new { customerID = ViewBag.CustomerID, contractorID = ViewBag.ContractorID })';return false;">@Resources.BackToList</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

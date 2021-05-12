@@ -1,0 +1,72 @@
+﻿@model SiccoApp.Models.AssignedEmployeesViewModel
+
+@{
+    ViewBag.Title = @Resources.AssignedEmployees;
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>@Resources.AssignedEmployees</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>@Resources.EtyContract : @Html.DisplayFor(model => model.ContractDescription)<small></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("EmployeesToAssign", "Contractors", new {contractID = Model.ContractID, contractorID = Model.ContractorID})'">@Resources.ToAssignEmployee</button>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+                            <!--<p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+
+
+                            <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">@Resources.IdentificationNumber </th>
+                                        <th class="column-title">@Resources.LastName </th>
+                                        <th class="column-title">@Resources.FirstName </th>
+                                        <th class="column-title no-link text-right">
+                                            <span class="nobr">Action</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.EmployeesContracts)
+                                    {
+                                        <tr class="odd pointer">
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.Employee.IdentificationNumber) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.Employee.LastName) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.Employee.FirstName) </td>
+                                            <td class="a-center a-center text-right">
+                                                <!-- VOY POR ACAAAA -->
+                                                @Html.ActionLink(@Resources.Delete, "EmployeesToUnassign", new { employeeID = item.EmployeeID, contractID = item.ContractID  })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="nav navbar-right panel_toolbox">
+                            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("EmployeesToAssign", "Contractors", new {contractID = Model.ContractID, contractorID = Model.ContractorID})'">@Resources.ToAssignEmployee</button>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
+                        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Contracts", "Contractors", new { id = Model.ContractorID })';return false;">@Resources.BackToList</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

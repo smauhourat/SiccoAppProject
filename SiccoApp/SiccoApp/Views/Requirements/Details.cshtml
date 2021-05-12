@@ -1,0 +1,74 @@
+﻿@model SiccoApp.Persistence.Requirement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Requirement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentationBusinessType.DocumentationBusinessTypeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentationBusinessType.DocumentationBusinessTypeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeContractID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeContractID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleContractID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleContractID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PeriodID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PeriodID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequirementStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequirementStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RequirementID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

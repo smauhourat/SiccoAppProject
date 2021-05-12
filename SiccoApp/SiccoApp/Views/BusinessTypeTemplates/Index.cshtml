@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SiccoApp.Persistence.BusinessTypeTemplate>
+
+@{
+    ViewBag.Title = Resources.EtyBusinessTypeTemplatesTitle;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>@Resources.EtyBusinessTypes</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><!--Subtitulo--> <small><!--detalle subtitulo--></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "BusinessTypeTemplates")'">@Resources.CreateNew</button>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+                            <!--<p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+
+
+                            <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.BusinessTypeTemplateCode) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Description) </th>
+                                        <th class="column-title no-link text-right">
+                                            <span class="nobr">@Resources.Action</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="odd pointer">
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.BusinessTypeTemplateCode) </td>
+                                            <td class=" ">@Html.DisplayFor(modelItem => item.Description) </td>
+                                            <td class="a-center a-center text-right">
+                                                @Html.ActionLink(@Resources.Edit, "Edit", new { id = item.BusinessTypeTemplateID }) |
+                                                @Html.ActionLink(@Resources.Details, "Details", new { id = item.BusinessTypeTemplateID }) |
+                                                @Html.ActionLink(@Resources.Delete, "Delete", new { id = item.BusinessTypeTemplateID }) |
+                                                @Html.ActionLink(@Resources.Documentation, "AssignedDocuments", new { id = item.BusinessTypeTemplateID })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "BusinessTypeTemplates")'">@Resources.CreateNew</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

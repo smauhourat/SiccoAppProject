@@ -1,0 +1,90 @@
+﻿@model SiccoApp.Persistence.Presentation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Presentation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PresentationState.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PresentationState.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Requirement.RequirementID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Requirement.RequirementID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PresentationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PresentationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentFiles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentFiles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApprovedFor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApprovedFor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApprovedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApprovedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RejectedFor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RejectedFor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RejectedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RejectedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observations)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PresentationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

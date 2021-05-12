@@ -1,0 +1,81 @@
+﻿@model IEnumerable<SiccoApp.Persistence.Presentation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PresentationState.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Requirement.RequirementID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PresentationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentFiles)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApprovedFor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApprovedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RejectedFor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RejectedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observations)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PresentationState.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Requirement.RequirementID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PresentationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentFiles)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApprovedFor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApprovedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RejectedFor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RejectedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observations)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PresentationID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PresentationID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PresentationID })
+        </td>
+    </tr>
+}
+
+</table>

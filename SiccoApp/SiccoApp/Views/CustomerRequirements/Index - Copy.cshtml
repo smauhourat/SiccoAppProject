@@ -1,0 +1,106 @@
+﻿@model SiccoApp.Models.RequirementListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">aaaaaaaaaaaa
+                <h3>@Resources.Requirements</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    @using (Html.BeginForm("Index", "CustomerRequirements", FormMethod.Get))
+                    {
+                    <h2><!--Subtitulo--> </h2>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        @Resources.EtyContractor : @Html.DropDownList("ContractorID", null, htmlAttributes: new { @class = "form-control col-md-2 col-xs-8" })
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        @Resources.EtyContract : @Html.DropDownList("ContractID", null, htmlAttributes: new { @class = "form-control col-md-4 col-xs-10" })
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        @Resources.Period : @Html.DropDownList("PeriodID", null, htmlAttributes: new { @class = "form-control col-md-7 col-xs-12" })
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <button type="submit" class="btn btn-success">@Resources.Search</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                    }
+                </div>
+                <div class="x_content">
+                        <!--<p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+                        <div class="table-responsive">
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th></th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().DocumentationCode) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().Description) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().ResourceType) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().ResourceIdentification) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().PeriodID) </th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().RequirementStatus)</th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().DueDate)</th>
+                                        <th class="column-title">@Html.DisplayNameFor(model => model.Requirements.FirstOrDefault().PresentationCount)</th>
+                                        <th class="column-title no-link last">
+                                            <span class="nobr">Action</span>
+                                        </th>
+                                        <th class="bulk-actions" colspan="7">
+                                            <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Requirements)
+                                    {
+                                        <tr class="odd pointer">
+                                            <td class="a-center ">
+                                                <i class="fa fa-square" style="color:@item.Semaphore;font-size:20px"></i>
+                                            </td>
+                                            <td class="">@Html.DisplayFor(modelItem => item.DocumentationCode) </td>
+                                            <td class="text-nowrap">@Html.DisplayFor(modelItem => item.Description) </td>
+                                            <td class="">@Html.DisplayFor(modelItem => item.ResourceType) </td>
+                                            <td class="">@Html.DisplayFor(modelItem => item.ResourceIdentification) </td>
+                                            <td class="">@Html.DisplayFor(modelItem => item.PeriodID) </td>
+                                            <td class="">@Html.DisplayFor(modelItem => item.RequirementStatus)</td>
+                                            <td class="">@Html.DisplayFor(modelItem => item.DueDate)</td>
+                                            <td class="">@Html.DisplayFor(modelItem => item.PresentationCount)</td>
+                                            <td class="a-center a-center last text-nowrap">
+                                                @if (item.RequirementStatus == SiccoApp.Persistence.RequirementStatus.Pending)
+                                                {
+                                                    @Html.ActionLink("Attach", "PresentationAttach", Request.QueryString.ToRouteValues(new { requirementID = item.RequirementID }));
+                                                }
+                                                @if (item.RequirementStatus == SiccoApp.Persistence.RequirementStatus.ToProcess && item.PresentationCount > 0)
+                                                {
+                                                    @Html.ActionLink("View", "PresentationsIndex", Request.QueryString.ToRouteValues(new { requirementID = item.RequirementID }));
+                                                }
+                                                else
+                                                {
+                                                    if (item.PresentationCount > 0)
+                                                    { 
+                                                        @Html.ActionLink("View", "PresentationsIndex", Request.QueryString.ToRouteValues(new { requirementID = item.RequirementID }));
+                                                    }
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

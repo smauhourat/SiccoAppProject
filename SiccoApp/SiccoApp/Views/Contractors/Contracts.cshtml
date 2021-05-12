@@ -1,0 +1,119 @@
+﻿@model SiccoApp.Models.ContractorContractsViewModel
+
+@{
+    ViewBag.Title = @Resources.ContractsForContractor;
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>@Resources.EtyContracts</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>@Resources.ContractsForContractor : '@Html.DisplayFor(model => model.CompanyName)' <small><!--detalle subtitulo--></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("ContractsCreate", "Contractors", new { contractorID = Model.ContractorID, customerID = Model.CustomerID })'">@Resources.CreateNew</button>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+                            <!--<p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+
+                            <div class="table-responsive">
+                                <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                    <thead>
+                                        <tr class="headings">
+                                            <th class="column-title">@Resources.ContractCode </th>
+                                            <th class="column-title">@Resources.ContractDescription </th>
+                                            <th class="column-title">@Resources.StartDate </th>
+                                            <th class="column-title">@Resources.EndDate </th>
+                                            <th class="column-title no-link text-right">
+                                                <span class="nobr">Accion</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Contracts)
+                                        {
+                                            <tr class="odd pointer">
+                                                <td class="">@Html.DisplayFor(modelItem => item.ContractCode) </td>
+                                                <td class="">@Html.DisplayFor(modelItem => item.Description) </td>
+                                                <td class="text-nowrap">@Html.DisplayFor(modelItem => item.StartDate) </td>
+                                                <td class="text-nowrap">@Html.DisplayFor(modelItem => item.EndDate) </td>
+                                                <td class="a-center a-center text-right text-nowrap">
+                                                    @Html.ActionLink(@Resources.Edit, "ContractsEdit", new { contractID = item.ContractID }) |
+                                                    @Html.ActionLink(@Resources.Delete, "ContractsDelete", new { contractID = item.ContractID, contractorID = item.ContractorID }) |
+                                                    <a title="@Resources.AssignedEmployees" href="@Url.Action("AssignedEmployees", "Contractors", new { contractID = item.ContractID })"><i class="fa fa-user"></i></a>
+                                                    <a title="@Resources.AssignedVehicles" href="@Url.Action("AssignedVehicles", "Contractors", new { contractID = item.ContractID })"><i class="fa fa-truck"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="nav navbar-right panel_toolbox">
+                            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("ContractsCreate", "Contractors", new { contractorID = Model.ContractorID, customerID = Model.CustomerID })'">@Resources.CreateNew</button>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
+                        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Contractors")';return false;">@Resources.BackToList</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<h2>@Resources.ContractsForContractor @Html.DisplayFor(model => model.CompanyName)</h2>
+
+<p>
+    @Html.ActionLink(@Resources.CreateNew, "ContractsCreate", new { contractorID = Model.ContractorID })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Resources.ContractCode 
+        </th>
+        <th>
+            @Resources.StartDate`
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Contracts) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContractCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.ActionLink(@Resources.Edit, "ContractsEdit", new { contractID = item.ContractID }) |
+            @Html.ActionLink(@Resources.Delete, "ContractsDelete", new { contractID = item.ContractID, contractorID = item.ContractorID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink(@Resources.BackToList, "Index")
+</div>
